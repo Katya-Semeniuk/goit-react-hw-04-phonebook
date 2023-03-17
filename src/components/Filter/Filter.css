@@ -1,0 +1,23 @@
+.filter_label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: center;
+  color: white;
+  font-size: 18px;
+  font-weight: lighter;
+}
+.filter_input {
+  font-size: 1rem;
+  padding: 0.5em;
+  background-color: hsl(200, 100%, 91%, 0.3);
+  border: none;
+  outline: none;
+  border-radius: 0.25em;
+  color: white;
+  font-weight: lighter;
+}
+.filter_input:focus,
+.filter_input:hover {
+  box-shadow: 0 0 0 1px hsl(200, 100%, 50%);
+}
