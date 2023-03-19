@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { nanoid } from 'nanoid';
@@ -28,7 +28,6 @@ export default function App() {
       name,
       number,
     };
-    console.log(contactEl);
 
     if (contactEl) {
       setContacts(prevState => [...prevState, contactEl]);
@@ -39,12 +38,20 @@ export default function App() {
 
   const changeFilter = e => setFilter(e.currentTarget.value);
 
-  const getVisibleContacts = () => {
-    const normalizedFilter = filter.toLowerCase();
+  // const getVisibleContacts = useMemo(() => {
+  //   const normalizedFilter = filter.toLowerCase();
 
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+  //   return contacts.filter(contact =>
+  //     contact.name.toLowerCase().includes(normalizedFilter)
+  //   );
+  // }, [filter, contacts]);
+
+    const getVisibleContacts = () => {
+      const normalizedFilter = filter.toLowerCase();
+
+      return contacts.filter(contact =>
+        contact.name.toLowerCase().includes(normalizedFilter)
+      );
   };
 
   const deleteContact = contactId => {
